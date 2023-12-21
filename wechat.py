@@ -3,7 +3,19 @@ import requests
 import os
 import time
 import re
+import json
 
+class LoadConfig:
+    
+    def __init__(self) -> None:
+        pass
+
+    def loadcfg(self, cfg_path):
+        with open(file=cfg_path, mode='r', encoding='utf-8') as f:
+            origin = f.read()
+        result = json.loads(origin)
+        return result
+    
 class AccessToken:
 
     def __set_name__(self, owner, name):
